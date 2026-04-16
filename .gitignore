@@ -40,3 +40,6 @@ __pycache__/
 # --- Streamlit ---
 .streamlit/config.toml
 # You can uncomment this if you want to save specific UI settings
+
+logs/
+*log
