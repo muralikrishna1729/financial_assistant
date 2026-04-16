@@ -1,0 +1,42 @@
+# --- Virtual Environment ---
+venv/
+.venv/
+env/
+bin/
+lib/
+# This prevents uploading the heavy 1-2GB environment you just built
+
+# --- AI Models & Heavy Bloat ---
+.cache/
+.torch/
+.nvidia/
+*.weights
+*.bin
+*.pth
+# Keeps the heavy Docling/PyTorch cache off GitHub
+
+# --- Secrets & Environment Variables ---
+.env
+keys.py
+# CRITICAL: Never upload your Groq/Gemini API keys!
+
+# --- Financial Data (Privacy) ---
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.md
+!README.md
+# We ignore all PDFs and Images to protect your financial data.
+# The !README.md ensures your documentation is still uploaded.
+
+# --- Python & System ---
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+.ipynb_checkpoints/
+
+# --- Streamlit ---
+.streamlit/config.toml
+# You can uncomment this if you want to save specific UI settings
