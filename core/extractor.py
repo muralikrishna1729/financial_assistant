@@ -4,6 +4,8 @@ import base64
 from PIL import Image
 import io
 from utils.logger import logger
+from core.vision import analyze_image
+from utils.helpers import clean_extracted_text
 
 def detect_file_type(uploaded_file):
     """
@@ -77,7 +79,7 @@ def extract_from_image(uploaded_file):
     """
     try:
         filename = uploaded_file.name.lower()
-        uploaded_file.seek(0)
+        # uploaded_file.seek(0)
         file_bytes = uploaded_file.read()
         if filename.endswith(".png"):
             media_type = "image/png"
@@ -88,20 +90,29 @@ def extract_from_image(uploaded_file):
         else:
             media_type = "image/png"
 
-        base64_string = base64.b64encode(image_bytes).decode("utf-8")
+        base64_string = base64.b64encode(file_bytes).decode("utf-8")
 
         return base64_string, media_type
-    except:
+    except Exception as e:
         logger.error(f"Error encoding image: {str(e)}")
         return None, None
 
 
 
-if __name__ == "__main__":
-    sample_table = [
-        ["Date", "Description", "Amount", "Balance"],
-        ["12/02/2026", "Payment", "$300.00", "$5,660.00"],
-        ["12/02/2026", "Amazon Web Services EC2 Usage", "$320.45", "$4,512.78"],
-    ]
-    print(table_to_markdown(sample_table))
+def extract_document_context(uploaded_file) -> str:
+    file_type = detect_file_type(uploaded_file)
+
+    if file_type == "pdf":
+        logger.info(f"Processing PDF: {uploaded_file.name}")
+        raw_text = extract_from_pdf(uploaded_file)
+        return clean_extracted_text(raw_text)
+
+    elif file_type == "image":
+        logger.info(f"Processing image: {uploaded_file.name}")
+        # extract_from_image() returns (base64, media_type)
+        base64_str, media_type = extract_from_image(uploaded_file)
+        return analyze_image(base64_str, media_type)
+
+    else:
+        return "Unsupported file type. Please upload a PDF or image."
 
