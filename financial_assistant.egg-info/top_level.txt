@@ -1,0 +1,5 @@
+core
+logs
+tests
+utils
+venv

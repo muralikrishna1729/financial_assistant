@@ -1,0 +1,9 @@
+streamlit==1.45.0
+langchain==0.3.25
+langchain-groq==0.3.2
+langchain-community==0.3.23
+pdfplumber==0.11.4
+Pillow==11.2.1
+duckduckgo-search==8.0.1
+python-dotenv==1.1.0
+pandas==2.2.3

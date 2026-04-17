@@ -1,0 +1,27 @@
+[project]
+name = "financial_assistant"
+version = "0.1.0"
+description = "An AI-powered financial assistant for document extraction and analysis."
+authors = [
+    {name = "Murali", email = "hello@sagar.local"}
+]
+dependencies = [
+    "streamlit==1.45.0",
+    "langchain==0.3.25",
+    "langchain-groq==0.3.2",
+    "langchain-community==0.3.23",
+    "pdfplumber==0.11.4",
+    "Pillow==11.2.1",
+    "duckduckgo-search==8.0.1",
+    "python-dotenv==1.1.0",
+    "pandas==2.2.3",
+]
+requires-python = ">=3.9"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+# This tells Python to look for your code in the current directory
+where = ["."]

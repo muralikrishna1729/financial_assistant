@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: financial_assistant
+Version: 0.1.0
+Summary: An AI-powered financial assistant for document extraction and analysis.
+Author-email: Murali <hello@sagar.local>
+Requires-Python: >=3.9
+Requires-Dist: streamlit==1.45.0
+Requires-Dist: langchain==0.3.25
+Requires-Dist: langchain-groq==0.3.2
+Requires-Dist: langchain-community==0.3.23
+Requires-Dist: pdfplumber==0.11.4
+Requires-Dist: Pillow==11.2.1
+Requires-Dist: duckduckgo-search==8.0.1
+Requires-Dist: python-dotenv==1.1.0
+Requires-Dist: pandas==2.2.3
