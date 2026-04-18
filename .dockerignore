@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+
+
+# Sensitive — NEVER put .env in Docker image
+# Pass secrets via environment variables instead
+.env
+
+# Logs — container generates its own
+logs/
+
+# Git
+.git/
+.gitignore
+
+# Sample files used for testing
+
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
